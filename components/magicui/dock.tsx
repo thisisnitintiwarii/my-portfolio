@@ -17,7 +17,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   magnification?: number;
   distance?: number;
   direction?: "top" | "middle" | "bottom";
-  children: React.ReactNode;
+  children: React.ReactElement | React.ReactElement[];
   orientation?: "horizontal" | "vertical";
 }
 
@@ -45,12 +45,12 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const mouseY = useMotionValue(Infinity);
 
     const renderChildren = () => {
-      return React.Children.map(children, (child: any) => {
+      return React.Children.map(children, (child: React.ReactElement) => {
         return React.cloneElement(child, {
-          mouseX: mouseX,
-          mouseY: mouseY,
-          magnification: magnification,
-          distance: distance,
+          mouseX,
+          mouseY,
+          magnification,
+          distance,
         });
       });
     };
@@ -59,14 +59,14 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       <motion.div
         ref={ref}
         onMouseMove={(e) => {
-          if (orientation == "horizontal") {
+          if (orientation === "horizontal") {
             mouseX.set(e.clientX);
           } else {
             mouseY.set(e.clientY);
           }
         }}
         onMouseLeave={() => {
-          if (orientation == "horizontal") {
+          if (orientation === "horizontal") {
             mouseX.set(Infinity);
           } else {
             mouseY.set(Infinity);
@@ -93,8 +93,8 @@ export interface DockIconProps {
   size?: number;
   magnification?: number;
   distance?: number;
-  mouseX?: any;
-  mouseY?: any;
+  mouseX?: MotionValue<number>;
+  mouseY?: MotionValue<number>;
   className?: string;
   children?: React.ReactNode;
   props?: PropsWithChildren;
@@ -112,15 +112,13 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const distanceHeightCalc = useTransform(mouseY, (val: number) => {
+  const distanceHeightCalc = useTransform(mouseY ?? useMotionValue(Infinity), (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 };
-
     return val - bounds.y - bounds.height / 2;
   });
 
-  const distanceWidthCalc = useTransform(mouseX, (val: number) => {
+  const distanceWidthCalc = useTransform(mouseX ?? useMotionValue(Infinity), (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
