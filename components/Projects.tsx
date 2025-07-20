@@ -24,9 +24,9 @@ const projectsData = [
     title: "PenPages",
     description:
       "PenPages is a platform that allows users to create and share blogs with their friends.",
-    link: "",
-    code: "",
-    previewVideo: "/projectVideos/PenPages.mp4",
+    link: "https://penpagess.netlify.app/",
+    code: "https://github.com/thisisnitintiwarii/PenPages",
+    previewVideo: "/projectVideos/ppenpages.mp4",
     technologies: ["JavaScript", "Node.js", "Git", "Emoji", "Meow", "Inquirer"],
   },
   {
