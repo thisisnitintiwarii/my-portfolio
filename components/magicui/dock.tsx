@@ -126,13 +126,13 @@ const DockIcon = ({
   const heightSync = useTransform(
     distanceHeightCalc,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [30, magnification, 30]
   );
 
   const widthSync = useTransform(
     distanceWidthCalc,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [32, magnification, 32]
   );
 
   const height = useSpring(heightSync, {
