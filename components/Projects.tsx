@@ -27,7 +27,7 @@ const projectsData = [
     link: "https://penpagess.netlify.app/",
     code: "https://github.com/thisisnitintiwarii/PenPages",
     previewVideo: "/projectVideos/ppenpages.mp4",
-    technologies: ["JavaScript", "Node.js", "Git", "Emoji", "Meow", "Inquirer"],
+    technologies: ["JavaScript", "React", "Redux", "Git", "Appwrite"],
   },
   {
     title: "ThinkAI",
