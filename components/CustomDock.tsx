@@ -87,7 +87,7 @@ const DATA = {
       },
       Resume: {
         name: "Resume",
-        url: "https://drive.google.com/file/d/15FMPSeCaKO9LxcMicXG9xfbzXFUWqaCC/view?usp=sharing",
+        url: "https://drive.google.com/file/d/1pEGB_4vyEbambVJZNtJCizW0mYWo0-Ol/view?usp=sharing",
         icon: Icons.Resume,
       },
     },
