@@ -37,10 +37,9 @@ const projectsData = [
     code: "https://github.com/thisisnitintiwarii/ThinkAI",
     previewVideo: "/projectVideos/ThinkAI.mp4",
     technologies: [
-      "Next.js",
-      "React",
-      "Node.js",
-      "TypeScript",
+      "HTML",
+      "CSS",
+      "JavaScript",
       "Tailwind CSS",
     ],
   },
